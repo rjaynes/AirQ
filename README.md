@@ -50,6 +50,55 @@ And I can forecast further into the future:
 ![forecast code 2](https://user-images.githubusercontent.com/63068643/125211910-dce65400-e277-11eb-9dac-698d2f6fe868.JPG)
 ![forecasted no2 graph](https://user-images.githubusercontent.com/63068643/125211911-dfe14480-e277-11eb-87c9-d63275ce44c2.JPG)
 
+Now, I do the same for carbon monixide:
+
+Again, the ADF score indicate the data is not stationary and it is seasonal:
+![yc adf score](https://user-images.githubusercontent.com/63068643/125212113-2f744000-e279-11eb-8f56-7a6ca04c9e52.JPG)
+![acf for yc](https://user-images.githubusercontent.com/63068643/125212114-31d69a00-e279-11eb-8056-505adcaa1523.JPG)
+
+For CO2, the lowest AIC was -471 with associated SARIMAX model numbers (1,0,1)x(1,0,1,12)12.
+
+Results:
+![4 plots](https://user-images.githubusercontent.com/63068643/125212322-97775600-e27a-11eb-909c-bd9703047d85.JPG)
+![summary](https://user-images.githubusercontent.com/63068643/125212326-9c3c0a00-e27a-11eb-813b-7a944d131285.JPG)
+
+One step ahead:
+![one step ahead graph](https://user-images.githubusercontent.com/63068643/125212377-0654af00-e27b-11eb-915e-1bd18f96b547.JPG)
+
+Forecast:
+![predicted co graph](https://user-images.githubusercontent.com/63068643/125212393-166c8e80-e27b-11eb-835c-95e9e7ad3981.JPG)
+
+Now, on to ozone:
+
+Again, the ADF score and the ACF indicate that it is seasonal:
+![o adf](https://user-images.githubusercontent.com/63068643/125212686-284f3100-e27d-11eb-853c-5f983c9cb70e.JPG)
+![o3 acf](https://user-images.githubusercontent.com/63068643/125212687-2b4a2180-e27d-11eb-8c07-c3d74e8827a7.JPG)
+
+For O3, I fount the lowest AIC is -479 with associated SARIMAX model numbers (1,1,1)x(1,0,1,12)12.
+
+Results:
+![4 plots o3](https://user-images.githubusercontent.com/63068643/125212729-6a787280-e27d-11eb-87c8-3e5faf00d700.JPG)
+![o3 summary](https://user-images.githubusercontent.com/63068643/125212734-6e0bf980-e27d-11eb-9ccc-01c4e512ddb6.JPG)
+
+Here, we've run into an issue because the JB(Q) score is 0.00, which indicated the data is not normally distributed. To try to find a better model, I decide to use the Auto ARIMA package.
+![auto arima code](https://user-images.githubusercontent.com/63068643/125212776-9bf13e00-e27d-11eb-9ac8-b4b96e051612.JPG)
+
+Results from auto_arima:
+![4 plots after auto arima](https://user-images.githubusercontent.com/63068643/125212783-a90e2d00-e27d-11eb-83fb-a8a5b0a8bcb2.JPG)
+![auto arima results](https://user-images.githubusercontent.com/63068643/125212786-aca1b400-e27d-11eb-93c4-2682863f4065.JPG)
+
+The JB(Q) score is still low, but it is better. Here are the forecasted ozone levels:
+![forecasted o3 levels](https://user-images.githubusercontent.com/63068643/125212799-c7742880-e27d-11eb-8e5f-4002b492822c.JPG)
+
+
+
+
+
+
+
+
+
+
 
 
 
