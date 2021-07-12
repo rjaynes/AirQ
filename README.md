@@ -1,7 +1,7 @@
 # Air Quality Trends in the US
 
 # Data:
-This data was scraped from the US EPA website. It is a collection of air quality data from the years 2000-2016. It has data for four major pollutants (Nitrogen Dioxide, Sulphur Dioxide, Carbon Monoxide and Ozone). The origian dataset had 28 fields, including raw data by state and AQI (air-quality index). For my project, I focused on AQI for the pollutants. AQI has varying scales, but a lower score is always better. (i.e. A carbon monoxide AQI of 12 is much better air qualtiy than an AQI of 75.)
+This data was scraped from the US EPA website. It is a collection of air quality data from the years 2000-2016. It has data for three major pollutants (Nitrogen Dioxide, Carbon Monoxide, and Ozone). The origian dataset had 28 fields, including raw data by state and AQI (air-quality index). For my project, I focused on AQI for the pollutants. AQI has varying scales, but a lower score is always better. (i.e. A carbon monoxide AQI of 12 is much better air qualtiy than an AQI of 75.)
 
 Here is how the original dataset looked:![data](https://user-images.githubusercontent.com/63068643/124906203-ceb4e100-dfb4-11eb-9f92-c8be01327945.JPG)
 
@@ -81,14 +81,20 @@ Results:
 ![o3 summary](https://user-images.githubusercontent.com/63068643/125212734-6e0bf980-e27d-11eb-9ccc-01c4e512ddb6.JPG)
 
 Here, we've run into an issue because the JB(Q) score is 0.00, which indicated the data is not normally distributed. To try to find a better model, I decide to use the Auto ARIMA package.
-![auto arima code](https://user-images.githubusercontent.com/63068643/125212776-9bf13e00-e27d-11eb-9ac8-b4b96e051612.JPG)
+![auto arima code](https://user-images.githubusercontent.com/63068643/125258579-7ccdcd00-e2cc-11eb-9196-b1aaa1ccced5.JPG)
+
 
 Results from auto_arima:
-![4 plots after auto arima](https://user-images.githubusercontent.com/63068643/125212783-a90e2d00-e27d-11eb-83fb-a8a5b0a8bcb2.JPG)
-![auto arima results](https://user-images.githubusercontent.com/63068643/125212786-aca1b400-e27d-11eb-93c4-2682863f4065.JPG)
+![4 plots after auto arima](https://user-images.githubusercontent.com/63068643/125258643-8bb47f80-e2cc-11eb-9a66-12f7d57bb089.JPG)
+![auto arima results](https://user-images.githubusercontent.com/63068643/125258602-82c3ae00-e2cc-11eb-885f-04f2ca5e2dc2.JPG)
 
-The JB(Q) score is still low, but it is better. Here are the forecasted ozone levels:
-![forecasted o3 levels](https://user-images.githubusercontent.com/63068643/125212799-c7742880-e27d-11eb-8e5f-4002b492822c.JPG)
+The Prob(JB) score is still low, but it is is above the 0.05 threshold. 
+Here are the forecasted ozone levels:
+![Past and predicted o3 levels after auto](https://user-images.githubusercontent.com/63068643/125258691-953de780-e2cc-11eb-8ae7-12c1c322c912.JPG)
+
+
+
+
 
 
 
